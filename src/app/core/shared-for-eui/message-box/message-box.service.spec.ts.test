@@ -1,0 +1,76 @@
+import {ServiceSpecUtil} from "../../services/util/service.spec.util";
+import {MessageBoxService} from "./message-box.service";
+import {EuiMessageBoxService} from "@eui/components/eui-message-box";
+
+describe('GrowlService', () => {
+    let serviceTest: ServiceSpecUtil<MessageBoxService>;
+    let service: MessageBoxService;
+
+    beforeEach(() => {
+        const euiMessageBoxServiceSpy = jasmine.createSpyObj('EuiMessageBoxService',['openMessageBox', 'closeMessageBox']);
+        serviceTest = new ServiceSpecUtil(MessageBoxService, [ { provide: EuiMessageBoxService, useValue: euiMessageBoxServiceSpy } ]);
+
+        service = serviceTest.getService();
+    });
+
+    it('should create', () => {
+        serviceTest.verifyServiceWasCreated();
+    });
+
+    it(`closeMessageBox`, () => {
+        service.closeMessageBox();
+
+        const euiMessageBoxServiceSpy = serviceTest.getServiceProvided(EuiMessageBoxService);
+        expect(euiMessageBoxServiceSpy.closeMessageBox).toHaveBeenCalled();
+    });
+
+    [
+        {
+            msg: 'openPrimary',
+            method: 'openPrimary',
+            typeClass: 'primary',
+        },
+        {
+            msg: 'openSecondary',
+            method: 'openSecondary',
+            typeClass: 'secondary',
+        },
+        {
+            msg: 'openInfo',
+            method: 'openInfo',
+            typeClass: 'info',
+        },
+        {
+            msg: 'openSuccess',
+            method: 'openSuccess',
+            typeClass: 'success',
+        },
+        {
+            msg: 'openWarning',
+            method: 'openWarning',
+            typeClass: 'warning',
+        },
+        {
+            msg: 'openDanger',
+            method: 'openDanger',
+            typeClass: 'danger',
+        },
+        {
+            msg: 'openAccent',
+            method: 'openAccent',
+            typeClass: 'accent',
+        },
+    ].forEach(params => {
+        it(`openMessageBox from ${params.msg}`, () => {
+            service[params.method]();
+
+            const euiMessageBoxServiceSpy = serviceTest.getServiceProvided(EuiMessageBoxService);
+            expect(euiMessageBoxServiceSpy.openMessageBox).toHaveBeenCalled();
+
+            const configArg = euiMessageBoxServiceSpy.openMessageBox.calls.mostRecent().args[0];
+            expect(configArg['typeClass']).toBe(params.typeClass);
+        });
+    });
+
+});
+
