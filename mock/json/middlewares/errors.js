@@ -1,7 +1,7 @@
 const EXCEPTION_LIST = [
   '/notifications',
-  '/api/user/',
-  '/api/rest/web/',
+  '/user/',
+  '/rest/web/',
 ];
 
 const ALWAYS_FAIL_LIST = [
@@ -18,7 +18,7 @@ exports.error = (req, res, next) => {
     const alwaysFails = isInAlwaysFailList(req.path);
 
     if (alwaysFails || (randomOutcome < 0.025 && !isException)) {
-        
+
         const choice = Math.random();
 
         if (choice < 0.11) {

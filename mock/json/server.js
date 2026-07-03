@@ -9,7 +9,7 @@ const fs = require('fs');
 // const sseMiddleware = require('./middlewares/sse');
 
 // Set the port of our application
-const port = process.env.PORT || 3201;
+const port = 3400;
 // Middlewares
 app.use(middlewares);
 // app.use(delayMiddleware.delay);

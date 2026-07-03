@@ -1,0 +1,108 @@
+// material design themes
+// deeppurple-amber.css
+// indigo-pink.css
+
+@import 'bootstrap/dist/css/bootstrap.css';
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// primeng styles and customizations
+//@import "primeng/resources/themes/fluent-light/theme.css";
+//@import "primeng/resources/primeng.css";
+
+
+.p-component {
+    font-size: 16px;
+}
+
+// font weight of table title
+.p-datatable .p-datatable-thead > tr > th {
+    font-weight: 700;
+}
+
+// for the table filter fields input text
+.p-inputtext {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+
+// for the table filter fields with multi select
+.p-multiselect {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.link {
+    color: var(--eui-base-color-link);
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+// shell footer start
+.eui-app-footer {
+    border-top: none !important;
+}
+
+eui-footer {
+    justify-content: center;
+}
+
+.footer-list {
+    ul {
+        li {
+            background: none;
+            border: 0;
+            display: inline-block;
+            padding-left: 12px;
+            text-decoration: none;
+        }
+        li:before {
+            color: gray;
+            content: '•';
+            padding-right: 12px;
+        }
+    }
+}
+// shell footer end
+
+
+.eui-app-main-content {
+    padding: 16px 16px 72px 16px !important;
+}
+
+.eu-table {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 1px;
+    margin-right: 23px;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.hand-pointer-on-hover {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.min-width-100 {
+    min-width: 100% !important;
+}

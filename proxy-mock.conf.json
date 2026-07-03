@@ -1,0 +1,32 @@
+{
+    "/api": {
+        "target": "http://127.0.0.1:3400",
+        "secure": false
+    },
+    "/private": {
+        "target": "http://localhost:3400",
+        "secure": false
+    },
+    "/restapi": {
+        "target": "http://localhost:3400",
+        "secure": false
+    },
+    "/protected": {
+        "target": "http://localhost:3400",
+        "secure": false
+    },
+    "/configuration-service": {
+        "target": "http://localhost:3200",
+        "pathRewrite": {
+            "/configuration-service": "/configuration"
+        },
+        "secure": "false"
+    },
+    "/Dashboard/*": {
+        "target": "http://localhost:3200",
+        "secure": "false",
+        "pathRewrite": {
+            "^/Dashboard": ""
+        }
+    }
+}

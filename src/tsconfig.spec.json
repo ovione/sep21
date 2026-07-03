@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec"
+  },
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
+    "exclude": [
+        "**/*.spec.util.ts",
+        "app/core/test-functionality/*"
+    ]
+}
