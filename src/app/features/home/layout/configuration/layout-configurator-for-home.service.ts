@@ -30,7 +30,8 @@ export class LayoutConfiguratorForHomeService {
                     blue: 255,
                     opacity: 1
                 }),
-            })
+            }),
+            size: '4xl'
         });
     }
 

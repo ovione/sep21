@@ -2,6 +2,7 @@ import {Component, EventEmitter, input, InputSignal, Output, TemplateRef} from '
 import { NgTemplateOutlet } from "@angular/common";
 import {ConfigLeftColumn} from "./model/config-left-column.model";
 import {EUI_PAGE} from "@eui/components/eui-page";
+import {EuiResizableDirective} from "@eui/components/directives";
 
 @Component({
     selector: 'app-layout-template-left-center',
@@ -9,6 +10,7 @@ import {EUI_PAGE} from "@eui/components/eui-page";
     styleUrl: 'layout-template-left-center.component.scss',
     imports: [
     ...EUI_PAGE,
+    EuiResizableDirective,
     NgTemplateOutlet
 ],
 })

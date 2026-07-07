@@ -8,7 +8,12 @@
   }
   <eui-page-content>
     <eui-page-columns>
-      <eui-page-column euiResizable [style.background]="backgroundLeftColumn()" [label]="configLeftColumn().columnLabel" size="2xl" [isCollapsible]="configLeftColumn().isCollapsible" (collapse)="onCollapse()">
+      <eui-page-column euiResizable
+                       [style.background]="backgroundLeftColumn()"
+                       [label]="configLeftColumn().columnLabel"
+                       [euiSizeVariant]="configLeftColumn().size"
+                       [isCollapsible]="configLeftColumn().isCollapsible"
+                       (collapse)="onCollapse()">
         <eui-page-column-body>
           <ng-content select="left-content" />
         </eui-page-column-body>
