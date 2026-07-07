@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
@@ -8,12 +8,14 @@ import {MessageBoxService} from "../../../core/shared-for-eui/message-box/messag
 
 @Injectable()
 export class ApplicationHttpInterceptor implements HttpInterceptor {
+    private route = inject(Router);
+    private locationStrategy = inject(LocationStrategy);
+    private messageBoxService = inject(MessageBoxService);
+
     errorHandling: Array<string> = [];
     API_ENDPOINT: string;
 
-    constructor(private route: Router,
-                private locationStrategy: LocationStrategy,
-                private messageBoxService: MessageBoxService) {
+    constructor() {
         this.API_ENDPOINT = this.locationStrategy.getBaseHref().replace('/web/', '/');
     }
 
