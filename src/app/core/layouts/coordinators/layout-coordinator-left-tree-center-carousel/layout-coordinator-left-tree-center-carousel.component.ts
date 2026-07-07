@@ -1,5 +1,5 @@
 import {Component, EventEmitter, input, InputSignal, NO_ERRORS_SCHEMA, Output, TemplateRef} from '@angular/core';
-import {CommonModule} from "@angular/common";
+
 import {LayoutTemplateLeftCenterComponent} from "../../templates/layout-template-left-center/layout-template-left-center.component";
 import {LayoutComunicatorService} from "../../services/layout-comunicator.service";
 import {LayoutContentCenterCarouselComponent} from "../../content/layout-content-center-carousel/layout-content-center-carousel.component";
@@ -14,10 +14,10 @@ import {ConfigTreeInput} from "../../content/layout-content-left-tree/model/conf
     templateUrl: './layout-coordinator-left-tree-center-carousel.component.html',
     providers: [LayoutComunicatorService],
     imports: [
-        CommonModule,
-        LayoutTemplateLeftCenterComponent,
-        LayoutContentCenterCarouselComponent,
-        LayoutContentLeftTreeComponent],
+    LayoutTemplateLeftCenterComponent,
+    LayoutContentCenterCarouselComponent,
+    LayoutContentLeftTreeComponent
+],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class LayoutCoordinatorLeftTreeCenterCarouselComponent {

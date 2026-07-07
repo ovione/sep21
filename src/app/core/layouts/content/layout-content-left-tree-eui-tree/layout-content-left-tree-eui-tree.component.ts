@@ -1,5 +1,5 @@
-import {Component, effect, input, InputSignal, OnInit, ViewChild} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { Component, effect, input, InputSignal, OnInit, ViewChild, inject } from '@angular/core';
+
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {EUI_TREE, TreeDataModel, TreeItemModel} from "@eui/components/eui-tree";
 import {EuiTreeSelectionChanges} from "@eui/components/eui-tree";
@@ -17,15 +17,17 @@ import {EUI_INPUT_TEXT} from "@eui/components/eui-input-text";
     providers: [MetaDataColectorEuiTreeService],
     templateUrl: './layout-content-left-tree-eui-tree.component.html',
     imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        ...EUI_ICON,
-        ...EUI_TREE,
-        ...EUI_INPUT_GROUP,
-        ...EUI_INPUT_TEXT,
-    ],
+    ReactiveFormsModule,
+    ...EUI_ICON,
+    ...EUI_TREE,
+    ...EUI_INPUT_GROUP,
+    ...EUI_INPUT_TEXT
+],
 })
 export class LayoutContentLeftTreeEuiTreeComponent implements OnInit {
+    private layoutComunicatorService = inject(LayoutComunicatorService);
+    private metaDataColectorService = inject(MetaDataColectorEuiTreeService);
+
     configTree: InputSignal<ConfigTreeInput> = input.required<ConfigTreeInput>();
     treeItems: InputSignal<Array<TreeItemModel>> = input.required<Array<TreeItemModel>>();
     configTreeItems: ConfigTreeEuiTreeInput;
@@ -36,8 +38,7 @@ export class LayoutContentLeftTreeEuiTreeComponent implements OnInit {
     public isExpandedAll = false;
     public showLines = true;   // when false, not working because it looses identation. Maybe solved in version 18 TODO
 
-    constructor(private layoutComunicatorService: LayoutComunicatorService,
-                private metaDataColectorService: MetaDataColectorEuiTreeService) {
+    constructor() {
         effect(() => {
             this.configTreeItems = this.configTree().configTreeImplementation;
             this.treeItemsToDisplay = this.treeItems();

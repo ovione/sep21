@@ -1,5 +1,5 @@
 import {Component, EventEmitter, input, InputSignal, NO_ERRORS_SCHEMA, Output, TemplateRef} from '@angular/core';
-import {CommonModule} from "@angular/common";
+
 import {
     LayoutTemplateLeftCenterComponent
 } from "../../templates/layout-template-left-center/layout-template-left-center.component";
@@ -19,11 +19,10 @@ import {ConfigTreeInput} from "../../content/layout-content-left-tree/model/conf
     providers: [LayoutComunicatorService],
     templateUrl: './layout-coordinator-left-tree-center-any.component.html',
     imports: [
-        CommonModule,
-        LayoutTemplateLeftCenterComponent,
-        LayoutContentCenterAnyComponent,
-        LayoutContentLeftTreeComponent,
-    ],
+    LayoutTemplateLeftCenterComponent,
+    LayoutContentCenterAnyComponent,
+    LayoutContentLeftTreeComponent
+],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class LayoutCoordinatorLeftTreeCenterAnyComponent {

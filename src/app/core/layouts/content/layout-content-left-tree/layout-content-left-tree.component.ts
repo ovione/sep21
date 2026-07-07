@@ -1,5 +1,5 @@
-import {Component, effect, Injector, input, InputSignal, TemplateRef} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { Component, effect, Injector, input, InputSignal, TemplateRef, inject } from '@angular/core';
+import {NgTemplateOutlet} from "@angular/common";
 import {take} from "rxjs";
 import {GenericHttpService} from "../../../services/generic-http/generic-http.service";
 import {ConfigTreeInput} from "./model/config-tree-input.model";
@@ -9,16 +9,18 @@ import {LayoutItemTreeData} from "../../model/layout-item-tree.model";
     selector: 'eplatform-layout-content-left-tree',
     templateUrl: './layout-content-left-tree.component.html',
     imports: [
-        CommonModule,
-    ],
+    NgTemplateOutlet
+],
 })
 export class LayoutContentLeftTreeComponent {
+    private genericHttp = inject(GenericHttpService);
+    protected injector = inject(Injector);
+
     configTree: InputSignal<ConfigTreeInput> = input.required<ConfigTreeInput>();
     template: InputSignal<TemplateRef<any>> = input.required<TemplateRef<any>>();
     treeItems: Array<any>;
 
-    constructor(private genericHttp: GenericHttpService,
-                protected injector: Injector) {
+    constructor() {
         effect(() => {
             this.getTreeItems(this.configTree().url);
         });

@@ -1,21 +1,23 @@
 <eui-page>
-    <eui-page-header class="home_page_header" *ngIf="templateHeader()">
-        <eui-page-header-sub-label>
-            <ng-container *ngTemplateOutlet="templateHeader()"></ng-container>
-        </eui-page-header-sub-label>
+  @if (templateHeader()) {
+    <eui-page-header class="home_page_header">
+      <eui-page-header-sub-label>
+        <ng-container *ngTemplateOutlet="templateHeader()" />
+      </eui-page-header-sub-label>
     </eui-page-header>
-    <eui-page-content>
-        <eui-page-columns>
-            <eui-page-column euiResizable [ngStyle]="{background: backgroundLeftColumn()}" [label]="configLeftColumn().columnLabel" size="2xl" [isCollapsible]="configLeftColumn().isCollapsible" (collapse)="onCollapse()">
-                <eui-page-column-body>
-                    <ng-content select="left-content"></ng-content>
-                </eui-page-column-body>
-            </eui-page-column>
-            <eui-page-column>
-                <eui-page-column-body>
-                    <ng-content select="center-content"></ng-content>
-                </eui-page-column-body>
-            </eui-page-column>
-        </eui-page-columns>
-    </eui-page-content>
+  }
+  <eui-page-content>
+    <eui-page-columns>
+      <eui-page-column euiResizable [style.background]="backgroundLeftColumn()" [label]="configLeftColumn().columnLabel" size="2xl" [isCollapsible]="configLeftColumn().isCollapsible" (collapse)="onCollapse()">
+        <eui-page-column-body>
+          <ng-content select="left-content" />
+        </eui-page-column-body>
+      </eui-page-column>
+      <eui-page-column>
+        <eui-page-column-body>
+          <ng-content select="center-content" />
+        </eui-page-column-body>
+      </eui-page-column>
+    </eui-page-columns>
+  </eui-page-content>
 </eui-page>

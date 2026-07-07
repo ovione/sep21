@@ -1,5 +1,5 @@
-import {Component, DestroyRef, input, InputSignal, OnInit, TemplateRef} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { Component, DestroyRef, input, InputSignal, OnInit, TemplateRef, inject } from '@angular/core';
+import {NgTemplateOutlet} from "@angular/common";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {take} from "rxjs";
 import {GenericHttpService} from "../../../services/generic-http/generic-http.service";
@@ -11,19 +11,19 @@ import {FilterCriteria} from "../../model/filter-criteria.model";
     templateUrl: './layout-content-center-carousel.component.html',
     styleUrls: ['./layout-content-center-carousel.component.scss'],
     imports: [
-        CommonModule
-    ],
+    NgTemplateOutlet
+],
 })
 export class LayoutContentCenterCarouselComponent implements OnInit {
+    private destroyRef = inject(DestroyRef);
+    private genericHttp = inject(GenericHttpService);
+    private layoutComunicatorService = inject(LayoutComunicatorService);
+
     configLayout: InputSignal<any> = input.required<any>();
     template: InputSignal<TemplateRef<any>> = input<TemplateRef<any>>();
     configCarousel: any;
     showSpinner : boolean = true;
     carouselData: Array<any>;
-
-    constructor(private destroyRef: DestroyRef,
-                private genericHttp: GenericHttpService,
-                private layoutComunicatorService: LayoutComunicatorService,) {}
 
     ngOnInit() {
         this.layoutComunicatorService.subscribeWhenNotified().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({

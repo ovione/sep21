@@ -1,24 +1,28 @@
 @if(treeItemsToDisplay && configTreeItems) {
-    <div euiInputGroup>
-        <div class="eui-input-group-addon">
-            <div class="eui-input-group-addon-item">
-                <eui-icon-svg icon="eui-search"></eui-icon-svg>
-            </div>
-            <input euiInputText [formControl]="searchTreeInputControl" euiClearable [placeholder]="configTreeItems.searchPlaceHolder"/>
+  <div euiInputGroup>
+    <div class="eui-input-group-addon">
+      <div class="eui-input-group-addon-item">
+        <eui-icon-svg icon="eui-search" />
+      </div>
+      <input euiInputText [formControl]="searchTreeInputControl" euiClearable [placeholder]="configTreeItems.searchPlaceHolder"/>
 
-            <button *ngIf="!isExpandedAll" euiButton euiSecondary euiOutline (click)="expandAll()">
-                <eui-icon-svg icon="eui-level-down" class="eui-u-ml-s"></eui-icon-svg>
-            </button>
-            <button *ngIf="isExpandedAll" euiButton euiSecondary euiOutline (click)="collapseAll()">
-                <eui-icon-svg icon="eui-level-up" class="eui-u-ml-s"></eui-icon-svg>
-            </button>
-        </div>
+      @if (!isExpandedAll) {
+        <button euiButton euiSecondary euiOutline (click)="expandAll()">
+          <eui-icon-svg icon="eui-level-down" class="eui-u-ml-s" />
+        </button>
+      }
+      @if (isExpandedAll) {
+        <button euiButton euiSecondary euiOutline (click)="collapseAll()">
+          <eui-icon-svg icon="eui-level-up" class="eui-u-ml-s" />
+        </button>
+      }
     </div>
-    <eui-tree #treeInstance
-              isSingleSelect
-              highlightPath
-              isRecursiveSelection
-              [showLines]="showLines"
-              [nodes]="treeItemsToDisplay"
-              (selectionChange)="treeItemClick($event)"></eui-tree>
+  </div>
+  <eui-tree #treeInstance
+    isSingleSelect
+    highlightPath
+    isRecursiveSelection
+    [showLines]="showLines"
+    [nodes]="treeItemsToDisplay"
+  (selectionChange)="treeItemClick($event)" />
 }

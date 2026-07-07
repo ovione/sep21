@@ -1,5 +1,5 @@
-import {Component, effect, EventEmitter, input, InputSignal, Output} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { Component, effect, EventEmitter, input, InputSignal, Output, inject } from '@angular/core';
+
 import {EuiMenuItem} from "@eui/base";
 import {FilterCriteria} from "../../model/filter-criteria.model";
 import {LayoutComunicatorService} from "../../services/layout-comunicator.service";
@@ -12,11 +12,13 @@ import {EUI_SIDEBAR_MENU} from "@eui/components/eui-sidebar-menu";
     selector: 'eplatform-layout-content-left-tree-eui-sidebar-menu',
     templateUrl: './layout-content-left-tree-eui-sidebar-menu.component.html',
     imports: [
-        CommonModule,
-        ...EUI_SIDEBAR_MENU,
-    ],
+    ...EUI_SIDEBAR_MENU
+],
 })
 export class LayoutContentLeftTreeEuiSidebarMenuComponent {
+    private layoutComunicatorService = inject(LayoutComunicatorService);
+    private metaDataColectorService = inject(MetaDataColectorEuiSidebarMenuService);
+
     configTree: InputSignal<ConfigTreeInput> = input.required<ConfigTreeInput>();
     treeItems: InputSignal<Array<EuiMenuItem>> = input.required<Array<EuiMenuItem>>();
     configTreeItems: ConfigTreeEuiSidebarMenuInput;
@@ -24,7 +26,7 @@ export class LayoutContentLeftTreeEuiSidebarMenuComponent {
 
     @Output('customToolTip') customToolTipEmitter = new EventEmitter<string>();
 
-    constructor(private layoutComunicatorService: LayoutComunicatorService, private metaDataColectorService: MetaDataColectorEuiSidebarMenuService) {
+    constructor() {
         effect(() => {
             this.configTreeItems = this.configTree().configTreeImplementation;
             this.treeItemsToDisplay = this.treeItems();

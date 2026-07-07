@@ -12,7 +12,7 @@ import {
 } from "./model/config-carousel-input.model";
 import {EUI_PAGINATOR, EuiPaginatorComponent} from "@eui/components/eui-paginator";
 import {EUI_ICON} from "@eui/components/eui-icon";
-import {CommonModule} from "@angular/common";
+import {NgTemplateOutlet} from "@angular/common";
 
 const  carouselSlideAnimation = (): AnimationTriggerMetadata =>
     trigger('slide', [
@@ -26,10 +26,10 @@ const  carouselSlideAnimation = (): AnimationTriggerMetadata =>
     animations: [carouselSlideAnimation()],
     styleUrl: './carousel.component.scss',
     imports: [
-        CommonModule,
-        ...EUI_ICON,
-        ...EUI_PAGINATOR,
-    ]
+    ...EUI_ICON,
+    ...EUI_PAGINATOR,
+    NgTemplateOutlet
+]
 })
 export class CarouselComponent {
     configCarousel: InputSignal<ConfigCarouselInput> = input<ConfigCarouselInput>(new ConfigCarouselInput());

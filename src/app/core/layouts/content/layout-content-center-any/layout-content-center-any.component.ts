@@ -1,6 +1,6 @@
-import {Component, DestroyRef, input, InputSignal, OnInit, TemplateRef} from '@angular/core';
+import { Component, DestroyRef, input, InputSignal, OnInit, TemplateRef, inject } from '@angular/core';
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {CommonModule, NgStyle} from "@angular/common";
+import { NgStyle, NgTemplateOutlet } from "@angular/common";
 import {take} from "rxjs";
 import {GenericHttpService} from "../../../services/generic-http/generic-http.service";
 import {LayoutComunicatorService} from "../../services/layout-comunicator.service";
@@ -12,19 +12,19 @@ import {ConfigAnyInput} from "../../model/config-any-input.model";
     templateUrl: './layout-content-center-any.component.html',
     styleUrls: ['./layout-content-center-any.component.scss'],
     imports: [
-        CommonModule,
-    ],
+    NgTemplateOutlet
+],
 })
 export class LayoutContentCenterAnyComponent implements OnInit {
+    private destroyRef = inject(DestroyRef);
+    private genericHttp = inject(GenericHttpService);
+    private layoutComunicatorService = inject(LayoutComunicatorService);
+
     configLayout: InputSignal<ConfigAnyInput> = input<ConfigAnyInput>();
     template: InputSignal<TemplateRef<any>> = input<TemplateRef<any>>();
     showSpinner : boolean = true;
     data: any;
     filterCriteria: any;
-
-    constructor(private destroyRef: DestroyRef,
-                private genericHttp: GenericHttpService,
-                private layoutComunicatorService: LayoutComunicatorService) {}
 
     ngOnInit() {
         this.layoutComunicatorService.subscribeWhenNotified().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({

@@ -1,7 +1,7 @@
 <div class="layout-container">
     @if(data) {
         @if(!showSpinner || configLayout().delegateBackendCalls) {
-            <ng-container *ngTemplateOutlet="template();context:{config: configLayout(), data: data, filterCriteria: filterCriteria}"></ng-container>
+            <ng-container *ngTemplateOutlet="template();context:{config: configLayout(), data: data, filterCriteria: filterCriteria}" />
         }
         @else() {
             <div id="loader-wrapper">

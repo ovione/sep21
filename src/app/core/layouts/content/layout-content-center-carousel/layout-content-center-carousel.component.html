@@ -1,7 +1,7 @@
 <div class="layout-container">
     @if(carouselData) {
         @if(!showSpinner || configLayout().delegateBackendCalls) {
-            <ng-container *ngTemplateOutlet="template();context:{config: configLayout(), data: carouselData}"></ng-container>
+            <ng-container *ngTemplateOutlet="template();context:{config: configLayout(), data: carouselData}" />
         }
         @else() {
             <div id="loader-wrapper">

@@ -1,16 +1,18 @@
 @if(confCarousel?.carouselCardsForAllShowing) {
-    <eui-card>
-        <eui-card-header *ngIf="confCarousel.title">
-            <eui-card-header-title>
-                {{ confCarousel.title }}
-            </eui-card-header-title>
-        </eui-card-header>
-        <eui-card-content [ngStyle]="{background: rgba()}">
-            <eplatform-carousel [configCarousel]="confCarousel" [template]="carouselTemplate"></eplatform-carousel>
-        </eui-card-content>
-    </eui-card>
+  <eui-card>
+    @if (confCarousel.title) {
+      <eui-card-header>
+        <eui-card-header-title>
+          {{ confCarousel.title }}
+        </eui-card-header-title>
+      </eui-card-header>
+    }
+    <eui-card-content [style.background]="rgba()">
+      <eplatform-carousel [configCarousel]="confCarousel" [template]="carouselTemplate" />
+    </eui-card-content>
+  </eui-card>
 }
 
 <ng-template #carouselTemplate let-config="config" let-data="data">
-    <ng-container *ngTemplateOutlet="template(); context:{config: config, data: data}"></ng-container>
+  <ng-container *ngTemplateOutlet="template(); context:{config: config, data: data}" />
 </ng-template>

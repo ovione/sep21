@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import {ConfigLeftColumn} from "../../../../core/layouts/templates/layout-template-left-center/model/config-left-column.model";
+import {Injectable} from '@angular/core';
+import {
+    ConfigLeftColumn
+} from "../../../../core/layouts/templates/layout-template-left-center/model/config-left-column.model";
 import {LayoutDesign} from "../../../../core/layouts/model/design/layout-design.model";
 import {ConfigCarouselInput} from "../../../../core/components/carousel/model/config-carousel-input.model";
 import {CarouselDesign} from "../../../../core/components/carousel/model/carousel-design.model";

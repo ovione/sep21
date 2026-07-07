@@ -1,5 +1,5 @@
 import {Component, EventEmitter, input, InputSignal, Output, TemplateRef} from '@angular/core';
-import {CommonModule, NgStyle} from "@angular/common";
+import { NgTemplateOutlet } from "@angular/common";
 import {ConfigLeftColumn} from "./model/config-left-column.model";
 import {EUI_PAGE} from "@eui/components/eui-page";
 
@@ -8,10 +8,9 @@ import {EUI_PAGE} from "@eui/components/eui-page";
     templateUrl: './layout-template-left-center.component.html',
     styleUrl: 'layout-template-left-center.component.scss',
     imports: [
-        CommonModule,
-        NgStyle,
-        ...EUI_PAGE,
-    ],
+    ...EUI_PAGE,
+    NgTemplateOutlet
+],
 })
 export class LayoutTemplateLeftCenterComponent {
     templateHeader: InputSignal<TemplateRef<any>> = input<TemplateRef<any>>();

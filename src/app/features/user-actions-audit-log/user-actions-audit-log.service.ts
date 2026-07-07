@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { UserActionsAuditLogModel } from './model/user-actions-audit-log.model';
+import {inject, Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {UserActionsAuditLogModel} from './model/user-actions-audit-log.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserActionsAuditLogService {
+  protected http = inject(HttpClient);
 
-  constructor(protected http: HttpClient) { }
 
     getUserActionsAuditLogs(): Observable<Array<UserActionsAuditLogModel>> {
         return this.http.get<Array<UserActionsAuditLogModel>>('restapi/user-actions');
