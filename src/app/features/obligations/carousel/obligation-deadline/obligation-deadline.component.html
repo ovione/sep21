@@ -1,0 +1,57 @@
+<div class="row m-top-3" *ngFor="let cardsPerRow of cardsRows">
+    <div class="col-{{12/cardsPerRow.length}}" *ngFor="let card of cardsPerRow">
+        <eui-card [euiPrimary]="card.campaign"
+                  [euiSuccess]="!card.campaign">
+            <eui-card-header>
+                <eui-card-header-title euiTooltip="{{card.name}}">
+                    <eui-icon-svg *ngIf="card.campaign; else childCardIcon" size="m" icon="eui-ecl-list" fillColor="grey-100"></eui-icon-svg>
+                    <ng-template #childCardIcon>
+                        <eui-icon-svg size="m" icon="eui-ecl-file" fillColor="grey-100"></eui-icon-svg>
+                    </ng-template>
+                    &nbsp;
+                    <span [ngStyle]="{
+                        'font-weight': configCarousel()?.carouselDesign.cardsDesign.titleFontWeight,
+                        'color': configCarousel()?.carouselDesign.cardsDesign.titleTextColor,
+                    }">
+                    {{card.name}}</span>
+                </eui-card-header-title>
+            </eui-card-header>
+            <eui-card-content style="height: 8rem;">
+                <!-- Deadline and Status Row -->
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        {{card.deadline}}
+                    </div>
+                    <div class="col-6 d-flex justify-content-end align-items-center">
+                        @switch (card.status) {
+                            @case ("FUTURE") {
+                                <eui-badge euiSecondary euiOutline>{{card.status}}</eui-badge>
+                            }
+                            @case ("OPEN") {
+                                <eui-badge euiSuccess>{{card.status}}</eui-badge>
+                            }
+                            @case ("UPCOMING") {
+                                <eui-badge euiWarning>{{card.status}}</eui-badge>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row align-items-center m-top-3">
+                    <div class="col-6">
+                        <span>{{card.type}}</span>
+                    </div>
+                </div>
+            </eui-card-content>
+            <eui-card-footer>
+                <eui-card-footer-action-buttons style="height: 3rem;">
+                    <div class="row m-top-4 col-12">
+                        <div class="col-8">
+                            <button euiButton class="eui-u-mr-s eui-u-mb-s" euiSuccess (click)="openObligationDetail(card)">Open</button>
+                        </div>
+                    </div>
+                </eui-card-footer-action-buttons>
+            </eui-card-footer>
+        </eui-card>
+    </div>
+</div>
+

@@ -15,6 +15,7 @@ import {LogoutService} from "./core/services/logout.service";
 import {EuiGrowlService} from "@eui/core";
 import {DialogDynamicService} from "./common/dialog-dynamic/dialog-dynamic.service";
 import { TEXT } from "../config/global";
+import {EuiTooltipDirective} from "@eui/components/directives";
 
 @Component({
     selector: 'app-root',
@@ -26,6 +27,7 @@ import { TEXT } from "../config/global";
         ...EUI_ICON,
         ...EUI_USER_PROFILE,
         ...EUI_LANGUAGE_SELECTOR,
+        EuiTooltipDirective,
     ],
 })
 export class AppComponent implements OnInit {
