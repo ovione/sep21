@@ -4,9 +4,6 @@ import {
     LayoutCoordinatorLeftTreeCenterCarouselComponent
 } from "../../core/layouts/coordinators/layout-coordinator-left-tree-center-carousel/layout-coordinator-left-tree-center-carousel.component";
 import {
-    LayoutCoordinatorLeftTreeCenterAnyComponent
-} from "../../core/layouts/coordinators/layout-coordinator-left-tree-center-any/layout-coordinator-left-tree-center-any.component";
-import {
     LayoutContentLeftTreeEuiTreeComponent
 } from "../../core/layouts/content/layout-content-left-tree-eui-tree/layout-content-left-tree-eui-tree.component";
 import {CarouselAsCardComponent} from "../../core/components/carousel/carousel-as-card/carousel-as-card.component";
@@ -24,7 +21,7 @@ import {LayoutConfiguratorForHomeService} from "./layout/configuration/layout-co
     imports: [
         TranslateModule,
         LayoutCoordinatorLeftTreeCenterCarouselComponent,
-        LayoutCoordinatorLeftTreeCenterAnyComponent,
+        ///LayoutCoordinatorLeftTreeCenterAnyComponent,
         LayoutContentLeftTreeEuiTreeComponent,
         CarouselAsCardComponent,
         ObligationDeadlineComponent,
