@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-1 carousel-arrows"><eui-icon-svg icon="eui-caret-left" size="2xl"
+                                                                              [fillColor]="isFirstItemActive
+     ? 'grey-75' : 'primary-100'" (click)="goPrevious()"></eui-icon-svg></div>
+    <div class="col-10" [@slide]="animationState" (@slide.done)="animationDone($event)">
+        <ng-container *ngFor="let carouselCardsForShowing of carouselChildren; let i = index;">
+            <ng-container *ngIf="i=== currentActiveIndex">
+                <ng-container *ngTemplateOutlet="template();context:{config: configCarousel(), data: carouselCardsForShowing}"></ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+    <div class="col-1 carousel-arrows"><eui-icon-svg icon="eui-caret-right" size="2xl" [fillColor]="isLastItemActive
+     ? 'grey-75' : 'primary-100'" (click)="goNext()"></eui-icon-svg></div>
+</div>
+
+<div class="row m-top-3" [ngStyle]="{background: rgbaPaginator()}">
+
+        <div class="col-1"></div>
+        <div class="col-10 carousel-footer">
+            @if(!paginationMode) {
+                <span *ngFor="let carouselChild of carouselChildren; let i = index;" (click)="setActive(i)" class="carousel-footer-bullets">
+                    <ng-container *ngIf="i=== currentActiveIndex; else notSelectedCarouselChild">
+                        <eui-icon-svg icon="eui-ellipse" fillColor="primary-100" class="hand-pointer-on-hover"></eui-icon-svg>
+                    </ng-container>
+                    <ng-template #notSelectedCarouselChild>
+                        <eui-icon-svg icon="ellipse:outline" fillColor="grey-75" class="hand-pointer-on-hover"></eui-icon-svg>
+                    </ng-template>
+                </span>
+            }
+            @else() {
+                <eui-paginator
+                    #paginator
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"
+                    [page]="0"
+                    [length]="carouselLength"
+                    [hasPageNumberNavigation]="true"
+                    [nbPageNumberNavigation]="5"
+                    (pageChange)="setActive($event.page, true)">
+                </eui-paginator>
+            }
+        </div>
+        <div class="col-1"></div>
+
+</div>
+

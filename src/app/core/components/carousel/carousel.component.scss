@@ -1,0 +1,25 @@
+.carousel-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.carousel-footer {
+    display: flex;
+    justify-content: center;
+
+    & .carousel-footer-bullets {
+        margin-right: 10px;
+    }
+}
+
+.hand-pointer-on-hover {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
