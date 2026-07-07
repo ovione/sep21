@@ -1,0 +1,36 @@
+<div class="eu-table mr-0">
+<p-table [value]="userActions" styleClass="p-datatable-striped">
+    <ng-template pTemplate="caption">
+        <div class="row">
+            <div class="col-xl-6 text-left eu-table-caption-title">
+                <ng-container>User Actions log</ng-container>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:2%">ID</th>
+            <th style="width:10%">Date</th>
+            <th style="width:10%">Action</th>
+            <th style="width:10%">Username</th>
+            <th style="width:20%">Comment</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-userAction>
+        <tr class="tr-height-90">
+            <td>{{userAction.id}}</td>
+            <td>{{userAction.actionTime}}</td>
+            <td>{{userAction.action}}</td>
+            <td>{{userAction.username}}</td>
+            <td>{{userAction.comment}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td [attr.colspan]="5" class="eu-table-no-records-found">
+                No records found
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
