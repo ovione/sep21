@@ -21,9 +21,9 @@
       @for (carouselChild of carouselChildren; track carouselChild; let i = $index) {
         <span (click)="setActive(i)" class="carousel-footer-bullets">
           @if (i=== currentActiveIndex) {
-            <eui-icon-svg icon="eui-ellipse" fillColor="primary-100" class="hand-pointer-on-hover" />
+            <eui-icon-svg icon="eui-circle-fill" fillColor="primary" class="hand-pointer-on-hover" />
           } @else {
-            <eui-icon-svg icon="ellipse:outline" fillColor="grey-75" class="hand-pointer-on-hover" />
+            <eui-icon-svg icon="eui-circle" fillColor="neutral" class="hand-pointer-on-hover" />
           }
         </span>
       }
