@@ -56,12 +56,12 @@ export class LeftTreeToEuiTreeConverter extends LeftTreeConverterBase {
     private determineIconsAndColors(treeItemModel: TreeItemModel, layoutItemTree: LayoutItemTree) {
         switch (layoutItemTree.type) {
             case 'OBLIGATION':
-                layoutItemTree.campaign ?   treeItemModel.node.treeContentBlock.iconSvgName = 'eui-ecl-list' :
-                                            treeItemModel.node.treeContentBlock.iconSvgName = 'eui-ecl-file';
+                layoutItemTree.campaign ?   treeItemModel.node.treeContentBlock.iconSvgName = 'ecl-list:ecl' :
+                                            treeItemModel.node.treeContentBlock.iconSvgName = 'ecl-file:ecl';
                 treeItemModel.node.treeContentBlock.iconTypeClass = 'grey-100';
                 break;
             case 'OBLIGATION_DEADLINE':
-                treeItemModel.node.treeContentBlock.iconSvgName = 'eui-scheduled-list';
+                treeItemModel.node.treeContentBlock.iconSvgName = 'calendar-check:regular';
                 treeItemModel.node.treeContentBlock.iconTypeClass = 'grey-100';
                 break;
             case 'OBLIGATION_TYPE':
