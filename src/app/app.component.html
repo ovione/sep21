@@ -15,4 +15,27 @@
             </eui-header-user-profile>
         </eui-header>
     </eui-app-header>
+
+    <eui-app-toolbar>
+        <eui-toolbar>
+            <eui-toolbar-items>
+                <eui-toolbar-item class="pe-4">
+                    <eui-icon-svg icon="eui-settings" fillColor="white" class="eui-u-mr-m" euiTooltip="Settings" (click)="goToSettings()"></eui-icon-svg>
+                </eui-toolbar-item>
+                <eui-toolbar-item class="pe-4">
+                    <eui-icon-svg icon="eui-sign-out" fillColor="white" class="eui-u-mr-m" euiTooltip="Logout" (click)="logout()"></eui-icon-svg>
+                </eui-toolbar-item>
+            </eui-toolbar-items>
+        </eui-toolbar>
+    </eui-app-toolbar>
+
+    <eui-app-footer>
+        <eui-footer class="footer-list">
+            <ul>
+                <li class="hand-pointer-on-hover"><a (click) = "showPrivacyStatement()"> Data Privacy Statement </a></li>
+                <li>Version <strong class="eui-u-color-primary-100">{{systemDetailsInfo?.version}}</strong></li>
+                <li><span class="eui-u-color-primary-100">{{systemDetailsInfo?.deployDateTime}}</span></li>
+            </ul>
+        </eui-footer>
+    </eui-app-footer>
 </eui-app>

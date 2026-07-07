@@ -1,0 +1,16 @@
+import { TestBed } from '@angular/core/testing';
+
+import { DialogDynamicService } from './dialog-dynamic.service';
+
+describe('DialogDynamicService', () => {
+  let service: DialogDynamicService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(DialogDynamicService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

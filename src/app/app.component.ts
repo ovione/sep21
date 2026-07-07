@@ -13,6 +13,8 @@ import {SystemDetailsInfo} from "./core/models/system-details-info.model";
 import {Router} from "@angular/router";
 import {LogoutService} from "./core/services/logout.service";
 import {EuiGrowlService} from "@eui/core";
+import {DialogDynamicService} from "./common/dialog-dynamic/dialog-dynamic.service";
+import { TEXT } from "../config/global";
 
 @Component({
     selector: 'app-root',
@@ -30,6 +32,7 @@ export class AppComponent implements OnInit {
     private systemDetailsInfoService = inject(SystemDetailsInfoService);
     private logoutService = inject(LogoutService);
     private growlService = inject(EuiGrowlService);
+    private dialogDynamicService = inject(DialogDynamicService);
 
     systemDetailsInfo = new SystemDetailsInfo();
     router = inject(Router);
@@ -76,7 +79,11 @@ export class AppComponent implements OnInit {
         });
     }
 
-    navigateToSettings() {
+    goToSettings() {
         this.router.navigate(['settings']);
+    }
+
+    showPrivacyStatement() {
+        this.dialogDynamicService.open('Privacy Statement, Version: March 2026', TEXT.text, void 0 );
     }
 }
