@@ -28,13 +28,13 @@
               <div class="col-6 d-flex justify-content-end align-items-center">
                 @switch (card.status) {
                   @case ("FUTURE") {
-                    <eui-badge euiSecondary euiOutline>{{card.status}}</eui-badge>
+                    <eui-badge euiSecondary euiOutline euiSizeM>{{card.status}}</eui-badge>
                   }
                   @case ("OPEN") {
-                    <eui-badge euiSuccess>{{card.status}}</eui-badge>
+                    <eui-badge euiSuccess euiSizeM>{{card.status}}</eui-badge>
                   }
                   @case ("UPCOMING") {
-                    <eui-badge euiWarning>{{card.status}}</eui-badge>
+                    <eui-badge euiWarning euiSizeM>{{card.status}}</eui-badge>
                   }
                 }
               </div>
