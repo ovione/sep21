@@ -1,0 +1,8 @@
+<app-layout-template-left-center [templateHeader]="templateHeader()" [configLeftColumn]="configLeftColumn()" (customToolTip)="customToolTip($event)">
+    <left-content>
+        <eplatform-layout-content-left-tree [template]="templateLeftContent()" [configTree]="configLeftContent()"></eplatform-layout-content-left-tree>
+    </left-content>
+    <center-content>
+        <eplatform-layout-content-center-carousel [configLayout]="configRightContent()" [template]="templateRightContent()"></eplatform-layout-content-center-carousel>
+    </center-content>
+</app-layout-template-left-center>

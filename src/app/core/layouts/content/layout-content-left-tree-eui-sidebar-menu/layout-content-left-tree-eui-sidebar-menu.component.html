@@ -1,0 +1,9 @@
+@if(treeItemsToDisplay && configTreeItems) {
+    <eui-sidebar-menu [items]="treeItemsToDisplay"
+                      [hasIcons]="configTreeItems.hasIcons"
+                      [isCollapsed]="configTreeItems.isCollapsed"
+                      [hasFilter]="configTreeItems.hasFilter"
+                      [hasTooltip]="configTreeItems.hasTooltip"
+                      [expandAllItems]="configTreeItems.expandAllItems"
+                      (itemClick)="treeItemClick($event)" (mouseover)="onMouseOver($event)" ></eui-sidebar-menu>
+}

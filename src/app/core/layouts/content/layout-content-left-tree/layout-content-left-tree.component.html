@@ -1,0 +1,3 @@
+@if(treeItems) {
+    <ng-container *ngTemplateOutlet="template(); context:{configTree: configTree(), treeItems: treeItems}, injector: injector"></ng-container>
+}
