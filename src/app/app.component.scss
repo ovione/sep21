@@ -1,0 +1,22 @@
+.titleProfile {
+    font-weight: 600;
+}
+
+.profile-flag {
+    border-bottom: 1px solid;
+    border-color: grey;
+    height: 100px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+:host ::ng-deep eui-language-selector.eui-language-selector {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.footer-item-color {
+    color: #004494 !important;
+}
+
