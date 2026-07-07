@@ -1,7 +1,7 @@
 @if(treeItemsToDisplay && configTreeItems) {
   <div euiInputGroup>
-    <div class="eui-input-group-addon">
-      <div class="eui-input-group-addon-item">
+    <div euiInputGroupAddOn>
+      <div euiInputGroupAddOnItem>
         <eui-icon-svg icon="eui-search" />
       </div>
       <input euiInputText [formControl]="searchTreeInputControl" euiClearable [placeholder]="configTreeItems.searchPlaceHolder"/>

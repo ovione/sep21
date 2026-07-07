@@ -11,6 +11,7 @@ import {MetaDataColectorEuiTreeService} from "./meta-data-colector-eui-tree.serv
 import {EUI_ICON} from "@eui/components/eui-icon";
 import {EUI_INPUT_GROUP} from "@eui/components/eui-input-group";
 import {EUI_INPUT_TEXT} from "@eui/components/eui-input-text";
+import {EUI_BUTTON} from "@eui/components/eui-button";
 
 @Component({
     selector: 'eplatform-layout-content-left-tree-eui-tree',
@@ -21,6 +22,7 @@ import {EUI_INPUT_TEXT} from "@eui/components/eui-input-text";
     ...EUI_ICON,
     ...EUI_TREE,
     ...EUI_INPUT_GROUP,
+    ...EUI_BUTTON,
     ...EUI_INPUT_TEXT
 ],
 })
@@ -67,7 +69,6 @@ export class LayoutContentLeftTreeEuiTreeComponent implements OnInit {
             const treeItem: TreeItemModel = evt.selection[0];
             let filterCriteria: FilterCriteria = this.metaDataColectorService.getMetadataAsFilterCriteria(treeItem.node.treeContentBlock.id);
             this.layoutComunicatorService.notify(filterCriteria);
-            console.log(JSON.stringify(filterCriteria));
         }
     }
 }
