@@ -1,1 +1,26 @@
-Sep content
+<div>
+    <eplatform-layout-coordinator-left-tree-center-carousel
+        [configLeftColumn]="configLeftColumnHome"
+        [configLeftContent]="configLeftContentHome"
+        [templateHeader]="templateHeader"
+        [templateLeftContent]="templateLeftContent"
+        [configRightContent]="configRightContentHome"
+        [templateRightContent]="templateRightContent"></eplatform-layout-coordinator-left-tree-center-carousel>
+
+    <ng-template #templateHeader>
+        <sep-main-notice></sep-main-notice>
+    </ng-template>
+
+    <ng-template #templateLeftContent let-configTree="configTree" let-treeItems="treeItems">
+        <eplatform-layout-content-left-tree-eui-tree [configTree]="configTree" [treeItems]="treeItems"></eplatform-layout-content-left-tree-eui-tree>
+    </ng-template>
+
+    <ng-template #templateRightContent let-config="config" let-data="data">
+        <eplatform-carousel-as-card [configCarousel]="config" [data]="data" [template]="templateCarousel"></eplatform-carousel-as-card>
+    </ng-template>
+
+    <ng-template #templateCarousel let-config="config" let-data="data">
+        <app-obligation-deadline [configCarousel]="config" [obligationData]="data"></app-obligation-deadline>
+    </ng-template>
+</div>
+
